@@ -7,6 +7,7 @@ package vista;
 
 import controlador.GestionDato;
 import java.awt.HeadlessException;
+import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JDesktopPane;
 import javax.swing.JFrame;
@@ -32,15 +33,62 @@ public class VentanaPrincipal extends JFrame{
         this.iniciaComponentes();
         this.setSize(600, 500);
         this.setDefaultCloseOperation(3);
-        
+        this.setVisible(true);
     }
-    
+
     public void iniciaComponentes(){
+        this.escritorio = new JDesktopPane();
+        this.barraMenu = new JMenuBar ();
+        this.menuList = new ArrayList();
+        this.itemMenuList = new ArrayList();
+        
+        
+        this.add(this.escritorio);
         this.asignarIdioma();
     }
     
     public void asignarIdioma(){
         
+    }
+
+    public JDesktopPane getEscritorio() {
+        return escritorio;
+    }
+
+    public void setEscritorio(JDesktopPane escritorio) {
+        this.escritorio = escritorio;
+    }
+
+    public JMenuBar getBarraMenu() {
+        return barraMenu;
+    }
+
+    public void setBarraMenu(JMenuBar barraMenu) {
+        this.barraMenu = barraMenu;
+    }
+
+    public List<JMenu> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<JMenu> menuList) {
+        this.menuList = menuList;
+    }
+
+    public List<JMenuItem> getItemMenuList() {
+        return itemMenuList;
+    }
+
+    public void setItemMenuList(List<JMenuItem> itemMenuList) {
+        this.itemMenuList = itemMenuList;
+    }
+
+    public GestionDato getgD() {
+        return gD;
+    }
+
+    public void setgD(GestionDato gD) {
+        this.gD = gD;
     }
     
 }
