@@ -34,7 +34,6 @@ public class VentanaPrincipal extends JFrame {
     }
 
     public void iniciaComponentes() {
-        System.out.println("");
         this.escritorio = new JDesktopPane();
         this.barraMenu = new JMenuBar();
         this.menuList = new ArrayList();
