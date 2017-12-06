@@ -5,6 +5,8 @@
  */
 package vista;
 
+import controlador.GestionDato;
+
 /**
  *
  * @author Jorge Pizarro
@@ -15,7 +17,9 @@ public class Principal {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        GestionDato gD=new GestionDato();
+        VentanaPrincipal ventana=new VentanaPrincipal(gD,"Manejo de Archivos");
+        
     }
     
 }
