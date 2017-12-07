@@ -45,6 +45,8 @@ public class VentanaPaciente extends JInternalFrame {
         this.labelList.add(new JLabel("Código"));
         this.labelList.add(new JLabel("Nombre"));
         this.labelList.add(new JLabel("Apellido"));
+        this.labelList.add(new JLabel("Dirección"));
+        this.labelList.add(new JLabel("Teléfono"));
         this.labelList.add(new JLabel("Agregar Paciente"));
 
         this.textoList = new ArrayList<JTextField>();
@@ -60,7 +62,7 @@ public class VentanaPaciente extends JInternalFrame {
         }
 
         JPanel panelTitulo = new JPanel(new FlowLayout());
-        JPanel panelIngreso = new JPanel(new GridLayout(5, 2));
+        JPanel panelIngreso = new JPanel(new GridLayout(7, 2));
 
         panelIngreso.add(this.labelList.get(0));
         panelIngreso.add(this.textoList.get(0));
@@ -68,8 +70,13 @@ public class VentanaPaciente extends JInternalFrame {
         panelIngreso.add(this.textoList.get(1));
         panelIngreso.add(this.labelList.get(2));
         panelIngreso.add(this.textoList.get(2));
+        panelIngreso.add(this.labelList.get(3));
+        panelIngreso.add(this.textoList.get(3));
+        panelIngreso.add(this.labelList.get(4));
+        panelIngreso.add(this.textoList.get(4));
 
-        panelTitulo.add(this.labelList.get(3));
+
+        panelTitulo.add(this.labelList.get(5));
         panelIngreso.add(this.botonList.get(0));
         panelIngreso.add(this.botonList.get(1));
 
