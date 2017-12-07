@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.EventoMedico;
 import controlador.GestionDato;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -14,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import modelo.Medico;
 
 public class VentanaMedico extends JInternalFrame {
 
@@ -57,11 +59,11 @@ public class VentanaMedico extends JInternalFrame {
         this.botonList.add(new JButton("Guardar Médico"));
         this.botonList.add(new JButton("Limpiar Formulario"));
         for (int i = 0; i < this.botonList.size(); i++) {
-            //this.botonList.get(i).addActionListener(new EventoAspirante(this));
+            this.botonList.get(i).addActionListener(new EventoMedico(this));
         }
 
         JPanel panelTitulo = new JPanel(new FlowLayout());
-        JPanel panelIngreso = new JPanel(new GridLayout(6, 2));
+        JPanel panelIngreso = new JPanel(new GridLayout(5, 2));
 
         panelIngreso.add(this.labelList.get(0));
         panelIngreso.add(this.textoList.get(0));
@@ -80,14 +82,13 @@ public class VentanaMedico extends JInternalFrame {
         panelNorte.add(panelIngreso, BorderLayout.CENTER);
 
         //Tabla 
-        this.encabezado = new Object[5];
+        this.encabezado = new Object[4];
         this.encabezado[0] = "Codigo";
         this.encabezado[1] = "Nombre";
         this.encabezado[2] = "Apellido";
-        this.encabezado[3] = "Edad";
-        this.encabezado[4] = "Profesión";
+        this.encabezado[3] = "Profesión";
 
-        //this.datos = cargarDatos(this.gD.getPacienteList().size(), this.encabezado.length);
+        this.datos = cargarDatos(this.gD.getMedicoList().size(), this.encabezado.length);
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);
         this.tabla = new JTable(this.modeloTabla);
         this.scroll = new JScrollPane(this.tabla);
@@ -103,17 +104,94 @@ public class VentanaMedico extends JInternalFrame {
 
         Object[][] retorno = new Object[f][c];
         int i = 0;
-        /*for (Aspirante a:this.gD.getAspiranteList()) {
-            retorno[i][0] = a.getCodigo();
-            retorno[i][1] = a.getCedula();
-            retorno[i][2] = a.getNombre();
-            retorno[i][3] = a.getApellido();
-            retorno[i][4] = a.getFechaNac();
-            retorno[i][5] = a.getColegio();
-            retorno[i][6] = a.getTituloBachiller();
+        for (Medico m:this.gD.getMedicoList()) {
+            retorno[i][0] = m.getCodigo();
+            retorno[i][1] = m.getNombre();
+            retorno[i][2] = m.getApellido();
+            retorno[i][3] = m.getProfesion();
             i++;
-        }*/
+        }
         return retorno;
+    }
+
+    public Object[][] getDatos() {
+        return datos;
+    }
+
+    public void setDatos(Object[][] datos) {
+        this.datos = datos;
+    }
+
+    public Object[] getEncabezado() {
+        return encabezado;
+    }
+
+    public void setEncabezado(Object[] encabezado) {
+        this.encabezado = encabezado;
+    }
+
+    public DefaultTableModel getModeloTabla() {
+        return modeloTabla;
+    }
+
+    public void setModeloTabla(DefaultTableModel modeloTabla) {
+        this.modeloTabla = modeloTabla;
+    }
+
+    public JTable getTabla() {
+        return tabla;
+    }
+
+    public void setTabla(JTable tabla) {
+        this.tabla = tabla;
+    }
+
+    public JScrollPane getScroll() {
+        return scroll;
+    }
+
+    public void setScroll(JScrollPane scroll) {
+        this.scroll = scroll;
+    }
+
+    public JPanel getPanelInicial() {
+        return panelInicial;
+    }
+
+    public void setPanelInicial(JPanel panelInicial) {
+        this.panelInicial = panelInicial;
+    }
+
+    public List<JLabel> getLabelList() {
+        return labelList;
+    }
+
+    public void setLabelList(List<JLabel> labelList) {
+        this.labelList = labelList;
+    }
+
+    public List<JTextField> getTextoList() {
+        return textoList;
+    }
+
+    public void setTextoList(List<JTextField> textoList) {
+        this.textoList = textoList;
+    }
+
+    public List<JButton> getBotonList() {
+        return botonList;
+    }
+
+    public void setBotonList(List<JButton> botonList) {
+        this.botonList = botonList;
+    }
+
+    public GestionDato getgD() {
+        return gD;
+    }
+
+    public void setgD(GestionDato gD) {
+        this.gD = gD;
     }
 
 }

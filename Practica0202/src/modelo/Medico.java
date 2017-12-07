@@ -12,7 +12,7 @@ package modelo;
 public class Medico extends Persona {
     private String profesion;
 
-    public Medico(String profesion, int codigo, String nombre, String apellido) {
+    public Medico(int codigo, String nombre, String apellido, String profesion) {
         super(codigo, nombre, apellido);
         this.profesion = profesion;
     }

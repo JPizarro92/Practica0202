@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.EventoPaciente;
 import controlador.GestionDato;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -14,6 +15,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
+import modelo.Paciente;
 
 public class VentanaPaciente extends JInternalFrame {
 
@@ -58,11 +60,11 @@ public class VentanaPaciente extends JInternalFrame {
         this.botonList.add(new JButton("Guardar Paciente"));
         this.botonList.add(new JButton("Limpiar Formulario"));
         for (int i = 0; i < this.botonList.size(); i++) {
-            //this.botonList.get(i).addActionListener(new EventoAspirante(this));
+            this.botonList.get(i).addActionListener(new EventoPaciente(this));
         }
 
         JPanel panelTitulo = new JPanel(new FlowLayout());
-        JPanel panelIngreso = new JPanel(new GridLayout(7, 2));
+        JPanel panelIngreso = new JPanel(new GridLayout(6, 2));
 
         panelIngreso.add(this.labelList.get(0));
         panelIngreso.add(this.textoList.get(0));
@@ -84,12 +86,14 @@ public class VentanaPaciente extends JInternalFrame {
         panelNorte.add(panelIngreso, BorderLayout.CENTER);
 
         //Tabla 
-        this.encabezado = new Object[3];
+        this.encabezado = new Object[5];
         this.encabezado[0] = "Codigo";
         this.encabezado[1] = "Nombre";
         this.encabezado[2] = "Apellido";
+        this.encabezado[3] = "Direccion";
+        this.encabezado[4] = "Telefono";
 
-        //this.datos = cargarDatos(this.gD.getPacienteList().size(), this.encabezado.length);
+        this.datos = cargarDatos(this.gD.getPacienteList().size(), this.encabezado.length);
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);
         this.tabla = new JTable(this.modeloTabla);
         this.scroll = new JScrollPane(this.tabla);
@@ -105,16 +109,14 @@ public class VentanaPaciente extends JInternalFrame {
 
         Object[][] retorno = new Object[f][c];
         int i = 0;
-        /*for (Aspirante a:this.gD.getAspiranteList()) {
-            retorno[i][0] = a.getCodigo();
-            retorno[i][1] = a.getCedula();
-            retorno[i][2] = a.getNombre();
-            retorno[i][3] = a.getApellido();
-            retorno[i][4] = a.getFechaNac();
-            retorno[i][5] = a.getColegio();
-            retorno[i][6] = a.getTituloBachiller();
+        for (Paciente p:this.gD.getPacienteList()) {
+            retorno[i][0] = p.getCodigo();
+            retorno[i][1] = p.getNombre();
+            retorno[i][2] = p.getApellido();
+            retorno[i][3] = p.getDireccion();
+            retorno[i][4] = p.getTelefono();
             i++;
-        }*/
+        }
         return retorno;
     }
 

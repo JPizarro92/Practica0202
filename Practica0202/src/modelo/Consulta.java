@@ -14,12 +14,14 @@ public class Consulta {
     private Medico medico;
     private String fechaConsulta;
     private String horaConsulta;
+    private int codigo;
 
-    public Consulta(Paciente paciente, Medico medico, String fechaConsulta, String horaConsulta) {
+    public Consulta(int codigo, String fechaConsulta, String horaConsulta, Paciente paciente, Medico medico) {
         this.paciente = paciente;
         this.medico = medico;
         this.fechaConsulta = fechaConsulta;
         this.horaConsulta = horaConsulta;
+        this.codigo = codigo;
     }
 
     public Paciente getPaciente() {
@@ -52,6 +54,14 @@ public class Consulta {
 
     public void setHoraConsulta(String horaConsulta) {
         this.horaConsulta = horaConsulta;
+    }
+
+    public int getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(int codigo) {
+        this.codigo = codigo;
     }
     
     

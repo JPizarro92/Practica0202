@@ -13,7 +13,7 @@ public class Paciente extends Persona{
     private String direccion;
     private String telefono;
 
-    public Paciente(String direccion, String telefono, int codigo, String nombre, String apellido) {
+    public Paciente(int codigo, String nombre, String apellido, String direccion, String telefono) {
         super(codigo, nombre, apellido);
         this.direccion = direccion;
         this.telefono = telefono;
