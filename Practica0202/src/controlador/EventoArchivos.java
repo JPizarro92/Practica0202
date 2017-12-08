@@ -54,7 +54,7 @@ public class EventoArchivos implements ActionListener {
                 }
             }
         } catch (ExcepcionCamposVacios ex) {
-            JOptionPane.showMessageDialog(ventana, "Antes, seleccionar la ruta");
+            JOptionPane.showMessageDialog(ventana, this.ventana.getrB().getString("etiqueta_37"));
         }
     }
 

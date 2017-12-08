@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -29,13 +30,16 @@ public class VentanaPaciente extends JInternalFrame {
     private List<JTextField> textoList;
     private List<JButton> botonList;
     private GestionDato gD;
+    private ResourceBundle rB;
 
-    public VentanaPaciente(String title, GestionDato gD) {
+    public VentanaPaciente(String title, GestionDato gD, String idioma) {
         super(title, true, true, true, true);
         this.setSize(440, 330);
         this.setLocation(5, 10);
         this.gD = gD;
+        this.setrB(ResourceBundle.getBundle("" + idioma));
         this.iniciaComponente();
+        this.cargaIdioma();
     }
 
     public void iniciaComponente() {
@@ -50,6 +54,7 @@ public class VentanaPaciente extends JInternalFrame {
         this.labelList.add(new JLabel("Dirección"));
         this.labelList.add(new JLabel("Teléfono"));
         this.labelList.add(new JLabel("Agregar Paciente"));
+        this.labelList.add(new JLabel());
 
         this.textoList = new ArrayList<JTextField>();
         for (int i = 0; i < this.labelList.size() - 1; i++) {
@@ -77,7 +82,6 @@ public class VentanaPaciente extends JInternalFrame {
         panelIngreso.add(this.labelList.get(4));
         panelIngreso.add(this.textoList.get(4));
 
-
         panelTitulo.add(this.labelList.get(5));
         panelIngreso.add(this.botonList.get(0));
         panelIngreso.add(this.botonList.get(1));
@@ -87,11 +91,11 @@ public class VentanaPaciente extends JInternalFrame {
 
         //Tabla 
         this.encabezado = new Object[5];
-        this.encabezado[0] = "Codigo";
-        this.encabezado[1] = "Nombre";
-        this.encabezado[2] = "Apellido";
-        this.encabezado[3] = "Direccion";
-        this.encabezado[4] = "Telefono";
+        this.encabezado[0] = this.getrB().getString("etiqueta_13");
+        this.encabezado[1] = this.getrB().getString("etiqueta_14");
+        this.encabezado[2] = this.getrB().getString("etiqueta_15");
+        this.encabezado[3] = this.getrB().getString("etiqueta_16");
+        this.encabezado[4] = this.getrB().getString("etiqueta_17");
 
         this.datos = cargarDatos(this.gD.getPacienteList().size(), this.encabezado.length);
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);
@@ -109,7 +113,7 @@ public class VentanaPaciente extends JInternalFrame {
 
         Object[][] retorno = new Object[f][c];
         int i = 0;
-        for (Paciente p:this.gD.getPacienteList()) {
+        for (Paciente p : this.gD.getPacienteList()) {
             retorno[i][0] = p.getCodigo();
             retorno[i][1] = p.getNombre();
             retorno[i][2] = p.getApellido();
@@ -200,4 +204,22 @@ public class VentanaPaciente extends JInternalFrame {
         this.gD = gD;
     }
 
+    public ResourceBundle getrB() {
+        return rB;
+    }
+
+    public void setrB(ResourceBundle rB) {
+        this.rB = rB;
+    }
+
+    public void cargaIdioma() {
+        this.labelList.get(0).setText(rB.getString("etiqueta_13"));
+        this.labelList.get(1).setText(rB.getString("etiqueta_14"));
+        this.labelList.get(2).setText(rB.getString("etiqueta_15"));
+        this.labelList.get(3).setText(rB.getString("etiqueta_16"));
+        this.labelList.get(4).setText(rB.getString("etiqueta_17"));
+        this.labelList.get(5).setText(rB.getString("etiqueta_9"));
+        this.botonList.get(0).setText(rB.getString("etiqueta_24"));
+        this.botonList.get(1).setText(rB.getString("etiqueta_26"));
+    }
 }

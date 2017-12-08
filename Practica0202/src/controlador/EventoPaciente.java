@@ -41,11 +41,11 @@ public class EventoPaciente implements ActionListener {
                 this.ventana.getgD().addPaciente(p);
             }
         } catch (NumberFormatException NFE) {
-            JOptionPane.showMessageDialog(ventana, "El código debe ser un número entero", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(ventana, this.ventana.getrB().getString("etiqueta_31"), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (ExcepcionCamposVacios ex) {
-            JOptionPane.showMessageDialog(ventana, "No dejar los campos vacios");
+            JOptionPane.showMessageDialog(ventana, this.ventana.getrB().getString("etiqueta_32"));
         } catch (ExcepcionRepetidos ex) {
-            JOptionPane.showMessageDialog(ventana, "Paciente ya registrado", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(ventana, this.ventana.getrB().getString("etiqueta_33"), "Error", JOptionPane.INFORMATION_MESSAGE);
         }
 
         if (e.getSource().equals(this.ventana.getBotonList().get(1))) {

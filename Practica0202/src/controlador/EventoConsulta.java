@@ -51,13 +51,13 @@ public class EventoConsulta implements ActionListener {
                 }
             }
         } catch (NumberFormatException NFE) {
-            JOptionPane.showMessageDialog(ventana, "El código debe ser un número entero", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(ventana, this.ventana.getrB().getString("etiqueta_31"), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (NullPointerException NPE) {
-            JOptionPane.showMessageDialog(ventana, "No dejar los ComboBox vacios", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(ventana, this.ventana.getrB().getString("etiqueta_36"), "Error", JOptionPane.ERROR_MESSAGE);
         } catch (ExcepcionRepetidos ex) {
-            JOptionPane.showMessageDialog(ventana, "Aspirante ya inscrito", "Error", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(ventana, this.ventana.getrB().getString("etiqueta_35"), "Error", JOptionPane.INFORMATION_MESSAGE);
         } catch (ExcepcionCamposVacios ex) {
-            JOptionPane.showMessageDialog(ventana, "No dejar los campos vacios");
+            JOptionPane.showMessageDialog(ventana, this.ventana.getrB().getString("etiqueta_32"));
         }
 
         if (ae.getSource().equals(this.ventana.getBotonList().get(1))) {

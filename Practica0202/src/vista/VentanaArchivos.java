@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JInternalFrame;
@@ -22,13 +23,16 @@ public class VentanaArchivos extends JInternalFrame {
     private GestionDato gD;
     private JFileChooser fileChooser;
     private String ruta;
+    private ResourceBundle rB;
 
-    public VentanaArchivos(String title, GestionDato gD) {
+    public VentanaArchivos(String title, GestionDato gD, String idioma) {
         super(title, true, true, true, true);
         this.setSize(250, 170);
         this.setLocation(10, 400);
         this.gD = gD;
         this.iniciaComponente();
+        this.setrB(ResourceBundle.getBundle("" + idioma));
+        this.cargaIdioma();
     }
 
     public void iniciaComponente() {
@@ -121,6 +125,14 @@ public class VentanaArchivos extends JInternalFrame {
         this.ruta = ruta;
     }
 
+    public ResourceBundle getrB() {
+        return rB;
+    }
+
+    public void setrB(ResourceBundle rB) {
+        this.rB = rB;
+    }
+
     public String selecionarRuta() {
 
         String aux = "";
@@ -161,6 +173,13 @@ public class VentanaArchivos extends JInternalFrame {
                 }
             }
         }
+    }
+
+    public void cargaIdioma() {
+        this.labelList.get(0).setText(rB.getString("etiqueta_23"));
+        this.botonList.get(0).setText(rB.getString("etiqueta_27"));
+        this.botonList.get(1).setText(rB.getString("etiqueta_28"));
+        this.botonList.get(2).setText(rB.getString("etiqueta_29"));
     }
 
 }

@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 import javax.swing.JButton;
 import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
@@ -29,13 +30,16 @@ public class VentanaMedico extends JInternalFrame {
     private List<JTextField> textoList;
     private List<JButton> botonList;
     private GestionDato gD;
+    private ResourceBundle rB;
 
-    public VentanaMedico(String title, GestionDato gD) {
+    public VentanaMedico(String title, GestionDato gD, String idioma) {
         super(title, true, true, true, true);
         this.setSize(400, 300);
         this.setLocation(455, 10);
         this.gD = gD;
+        this.setrB(ResourceBundle.getBundle("" + idioma));
         this.iniciaComponente();
+        this.cargaIdioma();
     }
 
     public void iniciaComponente() {
@@ -83,10 +87,10 @@ public class VentanaMedico extends JInternalFrame {
 
         //Tabla 
         this.encabezado = new Object[4];
-        this.encabezado[0] = "Codigo";
-        this.encabezado[1] = "Nombre";
-        this.encabezado[2] = "Apellido";
-        this.encabezado[3] = "Profesión";
+        this.encabezado[0] = this.getrB().getString("etiqueta_13");
+        this.encabezado[1] = this.getrB().getString("etiqueta_14");
+        this.encabezado[2] = this.getrB().getString("etiqueta_15");
+        this.encabezado[3] = this.getrB().getString("etiqueta_18");
 
         this.datos = cargarDatos(this.gD.getMedicoList().size(), this.encabezado.length);
         this.modeloTabla = new DefaultTableModel(this.datos, this.encabezado);
@@ -104,7 +108,7 @@ public class VentanaMedico extends JInternalFrame {
 
         Object[][] retorno = new Object[f][c];
         int i = 0;
-        for (Medico m:this.gD.getMedicoList()) {
+        for (Medico m : this.gD.getMedicoList()) {
             retorno[i][0] = m.getCodigo();
             retorno[i][1] = m.getNombre();
             retorno[i][2] = m.getApellido();
@@ -194,4 +198,21 @@ public class VentanaMedico extends JInternalFrame {
         this.gD = gD;
     }
 
+    public ResourceBundle getrB() {
+        return rB;
+    }
+
+    public void setrB(ResourceBundle rB) {
+        this.rB = rB;
+    }
+
+    public void cargaIdioma() {
+        this.labelList.get(0).setText(rB.getString("etiqueta_13"));
+        this.labelList.get(1).setText(rB.getString("etiqueta_14"));
+        this.labelList.get(2).setText(rB.getString("etiqueta_15"));
+        this.labelList.get(3).setText(rB.getString("etiqueta_18"));
+        this.labelList.get(4).setText(rB.getString("etiqueta_10"));
+        this.botonList.get(0).setText(rB.getString("etiqueta_25"));
+        this.botonList.get(1).setText(rB.getString("etiqueta_26"));
+    }
 }
