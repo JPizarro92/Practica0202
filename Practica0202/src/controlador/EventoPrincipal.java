@@ -2,6 +2,7 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import vista.VentanaArchivos;
 import vista.VentanaConsulta;
 import vista.VentanaMedico;
 import vista.VentanaPaciente;
@@ -37,9 +38,9 @@ public class EventoPrincipal implements ActionListener {
             this.vPrincipal.getEscritorio().add(ventana);
         }
         if (e.getSource().equals(this.vPrincipal.getItemMenuList().get(3))) {
-            this.vPrincipal.getgD().guardarArchivoPaciente();
-            this.vPrincipal.getgD().guardarArchivoMedico();
-            this.vPrincipal.getgD().guardarArchivoConsulta();
+            VentanaArchivos ventana = new VentanaArchivos("Gestion Archivos", this.vPrincipal.getgD());
+            ventana.setVisible(true);
+            this.vPrincipal.getEscritorio().add(ventana);
         }
     }
 

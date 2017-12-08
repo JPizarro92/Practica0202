@@ -32,8 +32,8 @@ public class VentanaMedico extends JInternalFrame {
 
     public VentanaMedico(String title, GestionDato gD) {
         super(title, true, true, true, true);
-        this.setSize(530, 380);
-        this.setLocation(620, 10);
+        this.setSize(400, 300);
+        this.setLocation(455, 10);
         this.gD = gD;
         this.iniciaComponente();
     }

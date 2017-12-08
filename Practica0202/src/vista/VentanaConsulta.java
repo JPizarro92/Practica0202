@@ -37,7 +37,7 @@ public class VentanaConsulta extends JInternalFrame {
     public VentanaConsulta(String title, GestionDato gD) {
         super(title, true, true, true, true);
         this.setSize(490, 360);
-        this.setLocation(290, 260);
+        this.setLocation(860, 10);
         this.gD = gD;
         this.iniciaComponente();
     }

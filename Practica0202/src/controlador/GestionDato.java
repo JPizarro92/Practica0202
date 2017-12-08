@@ -66,10 +66,8 @@ public class GestionDato {
         return this.consultaList.add(c);
     }
 
-    public boolean guardarArchivoPaciente() {
+    public boolean guardarArchivoPaciente(String ruta) {
         try {
-            File f = new File(""); // Creamos un objeto file
-            String ruta = f.getAbsolutePath();
             FileWriter ae = new FileWriter(ruta+"\\ArchivoPaciente.txt", true);
 
             BufferedWriter escritura = new BufferedWriter(ae);
@@ -85,10 +83,8 @@ public class GestionDato {
         }
     }
 
-    public boolean guardarArchivoMedico() {
+    public boolean guardarArchivoMedico(String ruta) {
         try {
-            File f = new File(""); // Creamos un objeto file
-            String ruta = f.getAbsolutePath();
             FileWriter ae = new FileWriter(ruta+"\\ArchivoMedico.txt", true);
 
             BufferedWriter escritura = new BufferedWriter(ae);
@@ -103,10 +99,8 @@ public class GestionDato {
         }
     }
 
-    public boolean guardarArchivoConsulta() {
+    public boolean guardarArchivoConsulta(String ruta) {
         try {
-            File f = new File(""); // Creamos un objeto file
-            String ruta = f.getAbsolutePath();
             FileWriter ae = new FileWriter(ruta+"\\ArchivoConsulta.txt", true);
 
             BufferedWriter escritura = new BufferedWriter(ae);

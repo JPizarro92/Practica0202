@@ -33,7 +33,7 @@ public class VentanaPaciente extends JInternalFrame {
     public VentanaPaciente(String title, GestionDato gD) {
         super(title, true, true, true, true);
         this.setSize(440, 330);
-        this.setLocation(10, 10);
+        this.setLocation(5, 10);
         this.gD = gD;
         this.iniciaComponente();
     }
