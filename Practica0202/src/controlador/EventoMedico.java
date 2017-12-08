@@ -40,7 +40,7 @@ public class EventoMedico implements ActionListener {
                 this.ventana.getgD().addMedico(m);
             }
         } catch (NumberFormatException NFE) {
-            JOptionPane.showMessageDialog(ventana, "Ingresar numeros donde se los pide", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(ventana, "El código debe ser un número entero", "Error", JOptionPane.ERROR_MESSAGE);
         } catch (ExcepcionCamposVacios ex) {
             JOptionPane.showMessageDialog(ventana, "No dejar los campos vacios");
         } catch (ExcepcionRepetidos ex) {

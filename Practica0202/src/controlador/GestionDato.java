@@ -6,6 +6,7 @@
 package controlador;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
@@ -67,8 +68,9 @@ public class GestionDato {
 
     public boolean guardarArchivoPaciente() {
         try {
-
-            FileWriter ae = new FileWriter("C:\\Users\\saito\\Desktop\\hola\\ArchivoPaciente.txt", true);
+            File f = new File(""); // Creamos un objeto file
+            String ruta = f.getAbsolutePath();
+            FileWriter ae = new FileWriter(ruta+"\\ArchivoPaciente.txt", true);
 
             BufferedWriter escritura = new BufferedWriter(ae);
             for (Paciente p : this.pacienteList) {
@@ -85,8 +87,9 @@ public class GestionDato {
 
     public boolean guardarArchivoMedico() {
         try {
-
-            FileWriter ae = new FileWriter("C:\\Users\\saito\\Desktop\\hola\\ArchivoMedico.txt", true);
+            File f = new File(""); // Creamos un objeto file
+            String ruta = f.getAbsolutePath();
+            FileWriter ae = new FileWriter(ruta+"\\ArchivoMedico.txt", true);
 
             BufferedWriter escritura = new BufferedWriter(ae);
             for (Medico m : this.medicoList) {
@@ -102,8 +105,9 @@ public class GestionDato {
 
     public boolean guardarArchivoConsulta() {
         try {
-
-            FileWriter ae = new FileWriter("C:\\Users\\saito\\Desktop\\hola\\ArchivoConsulta.txt", true);
+            File f = new File(""); // Creamos un objeto file
+            String ruta = f.getAbsolutePath();
+            FileWriter ae = new FileWriter(ruta+"\\ArchivoConsulta.txt", true);
 
             BufferedWriter escritura = new BufferedWriter(ae);
             for (Consulta c : this.consultaList) {
