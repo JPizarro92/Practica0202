@@ -140,8 +140,10 @@ public class VentanaArchivos extends JInternalFrame {
 
         //try {
         this.fileChooser.showOpenDialog(this);
-        File abre = this.fileChooser.getSelectedFile();
-        texto = abre.getPath();
+        if (this.fileChooser.getSelectedFile() != null) {
+            File abre = this.fileChooser.getSelectedFile();
+            texto = abre.getPath();
+        }
         /*if (abre != null) {
                 FileReader archivos = new FileReader(abre);
                 BufferedReader lee = new BufferedReader(archivos);
