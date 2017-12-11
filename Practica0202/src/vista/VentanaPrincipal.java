@@ -28,12 +28,13 @@ public class VentanaPrincipal extends JFrame {
     public VentanaPrincipal(GestionDato gD, String title) throws HeadlessException {
         super(title);
         this.gD = gD;
+        this.setrB(ResourceBundle.getBundle("internacionalizacion.etiquetas_ES"));
         this.iniciaComponentes();
+        this.cargaIdioma();
         this.setSize(600, 500);
         this.setLocation(600, 100);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        this.setrB(ResourceBundle.getBundle("internacionalizacion.etiquetas_ES"));
         this.setVisible(true);
     }
 
