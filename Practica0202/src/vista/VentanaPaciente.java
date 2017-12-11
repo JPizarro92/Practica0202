@@ -54,7 +54,6 @@ public class VentanaPaciente extends JInternalFrame {
         this.labelList.add(new JLabel("Dirección"));
         this.labelList.add(new JLabel("Teléfono"));
         this.labelList.add(new JLabel("Agregar Paciente"));
-        this.labelList.add(new JLabel());
 
         this.textoList = new ArrayList<JTextField>();
         for (int i = 0; i < this.labelList.size() - 1; i++) {
