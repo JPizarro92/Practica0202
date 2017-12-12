@@ -50,7 +50,7 @@ public class VentanaArchivos extends JInternalFrame {
         this.botonList = new ArrayList<JButton>();
         this.botonList.add(new JButton("Seleccionar"));
         this.botonList.add(new JButton("Generar"));
-        this.botonList.add(new JButton("Abrir"));
+        this.botonList.add(new JButton("Informacion"));
         for (int i = 0; i < this.botonList.size(); i++) {
             this.botonList.get(i).addActionListener(new EventoArchivos(this));
         }
@@ -134,30 +134,12 @@ public class VentanaArchivos extends JInternalFrame {
     }
 
     public String selecionarRuta() {
-
-        String aux = "";
         String texto = "";
-
-        //try {
         this.fileChooser.showOpenDialog(this);
         if (this.fileChooser.getSelectedFile() != null) {
             File abre = this.fileChooser.getSelectedFile();
             texto = abre.getPath();
         }
-        /*if (abre != null) {
-                FileReader archivos = new FileReader(abre);
-                BufferedReader lee = new BufferedReader(archivos);
-                while ((aux = lee.readLine()) != null) {
-                    //texto += aux + "\n";
-                }
-
-                lee.close();
-            }
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, ex + ""
-                    + "\nNo se ha encontrado el archivo",
-                    "ADVERTENCIA!!!", JOptionPane.WARNING_MESSAGE);
-        }*/
         return texto;
     }
 
